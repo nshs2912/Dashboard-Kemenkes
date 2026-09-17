@@ -1,0 +1,503 @@
+{
+  "metadata": {
+    "system": "SI-HIS",
+    "dashboard": "Dashboard-Kemenkes",
+    "mode": "demo",
+    "period": "14 Hari"
+  },
+  "summary": {
+    "total_cases": 128406,
+    "cases_7d": 30130,
+    "active_alerts": 8,
+    "high_risk_provinces": 1,
+    "klb_signal": 0.76,
+    "forecast_7d": 29012,
+    "forecast_change_pct": -3.7,
+    "spatial_risk": 0.424,
+    "vulnerable_signal": 0.68
+  },
+  "province_metrics": [
+    {
+      "province": "Aceh",
+      "cases": 4277,
+      "cases_7d": 1031,
+      "risk_score": 0.587,
+      "risk_level": "MEDIUM",
+      "lat": 5.55,
+      "lon": 95.32,
+      "spatial_risk": 0.633
+    },
+    {
+      "province": "Sumatera Utara",
+      "cases": 7045,
+      "cases_7d": 1433,
+      "risk_score": 0.5,
+      "risk_level": "MEDIUM",
+      "lat": 3.59,
+      "lon": 98.67,
+      "spatial_risk": 0.547
+    },
+    {
+      "province": "Sumatera Barat",
+      "cases": 3668,
+      "cases_7d": 1021,
+      "risk_score": 0.435,
+      "risk_level": "LOW",
+      "lat": -0.95,
+      "lon": 100.35,
+      "spatial_risk": 0.547
+    },
+    {
+      "province": "Riau",
+      "cases": 2651,
+      "cases_7d": 626,
+      "risk_score": 0.206,
+      "risk_level": "LOW",
+      "lat": 0.51,
+      "lon": 101.45,
+      "spatial_risk": 0.265
+    },
+    {
+      "province": "Jambi",
+      "cases": 1889,
+      "cases_7d": 435,
+      "risk_score": 0.157,
+      "risk_level": "LOW",
+      "lat": -1.61,
+      "lon": 103.61,
+      "spatial_risk": 0.248
+    },
+    {
+      "province": "Sumatera Selatan",
+      "cases": 3824,
+      "cases_7d": 1075,
+      "risk_score": 0.362,
+      "risk_level": "LOW",
+      "lat": -2.99,
+      "lon": 104.76,
+      "spatial_risk": 0.435
+    },
+    {
+      "province": "Bengkulu",
+      "cases": 1468,
+      "cases_7d": 390,
+      "risk_score": 0.291,
+      "risk_level": "LOW",
+      "lat": -3.79,
+      "lon": 102.27,
+      "spatial_risk": 0.357
+    },
+    {
+      "province": "Lampung",
+      "cases": 3490,
+      "cases_7d": 952,
+      "risk_score": 0.535,
+      "risk_level": "MEDIUM",
+      "lat": -5.43,
+      "lon": 105.26,
+      "spatial_risk": 0.664
+    },
+    {
+      "province": "Kepulauan Bangka Belitung",
+      "cases": 900,
+      "cases_7d": 163,
+      "risk_score": 0.12,
+      "risk_level": "LOW",
+      "lat": -2.13,
+      "lon": 106.12,
+      "spatial_risk": 0.187
+    },
+    {
+      "province": "Kepulauan Riau",
+      "cases": 1433,
+      "cases_7d": 410,
+      "risk_score": 0.191,
+      "risk_level": "LOW",
+      "lat": 0.92,
+      "lon": 104.45,
+      "spatial_risk": 0.31
+    },
+    {
+      "province": "DKI Jakarta",
+      "cases": 9751,
+      "cases_7d": 2285,
+      "risk_score": 0.487,
+      "risk_level": "MEDIUM",
+      "lat": -6.21,
+      "lon": 106.85,
+      "spatial_risk": 0.635
+    },
+    {
+      "province": "Jawa Barat",
+      "cases": 13440,
+      "cases_7d": 2935,
+      "risk_score": 0.732,
+      "risk_level": "HIGH",
+      "lat": -6.92,
+      "lon": 107.61,
+      "spatial_risk": 0.853
+    },
+    {
+      "province": "Jawa Tengah",
+      "cases": 10689,
+      "cases_7d": 2328,
+      "risk_score": 0.552,
+      "risk_level": "MEDIUM",
+      "lat": -7.15,
+      "lon": 110.14,
+      "spatial_risk": 0.666
+    },
+    {
+      "province": "DI Yogyakarta",
+      "cases": 4279,
+      "cases_7d": 1163,
+      "risk_score": 0.228,
+      "risk_level": "LOW",
+      "lat": -7.8,
+      "lon": 110.37,
+      "spatial_risk": 0.306
+    },
+    {
+      "province": "Jawa Timur",
+      "cases": 12326,
+      "cases_7d": 2549,
+      "risk_score": 0.611,
+      "risk_level": "MEDIUM",
+      "lat": -7.25,
+      "lon": 112.75,
+      "spatial_risk": 0.672
+    },
+    {
+      "province": "Banten",
+      "cases": 5579,
+      "cases_7d": 1125,
+      "risk_score": 0.566,
+      "risk_level": "MEDIUM",
+      "lat": -6.12,
+      "lon": 106.15,
+      "spatial_risk": 0.672
+    },
+    {
+      "province": "Bali",
+      "cases": 3436,
+      "cases_7d": 837,
+      "risk_score": 0.384,
+      "risk_level": "LOW",
+      "lat": -8.41,
+      "lon": 115.19,
+      "spatial_risk": 0.466
+    },
+    {
+      "province": "Nusa Tenggara Barat",
+      "cases": 2303,
+      "cases_7d": 633,
+      "risk_score": 0.186,
+      "risk_level": "LOW",
+      "lat": -8.65,
+      "lon": 117.36,
+      "spatial_risk": 0.221
+    },
+    {
+      "province": "Nusa Tenggara Timur",
+      "cases": 1991,
+      "cases_7d": 471,
+      "risk_score": 0.246,
+      "risk_level": "LOW",
+      "lat": -10.18,
+      "lon": 123.6,
+      "spatial_risk": 0.358
+    },
+    {
+      "province": "Kalimantan Barat",
+      "cases": 2087,
+      "cases_7d": 518,
+      "risk_score": 0.147,
+      "risk_level": "LOW",
+      "lat": -0.03,
+      "lon": 109.34,
+      "spatial_risk": 0.185
+    },
+    {
+      "province": "Kalimantan Tengah",
+      "cases": 2144,
+      "cases_7d": 469,
+      "risk_score": 0.215,
+      "risk_level": "LOW",
+      "lat": -2.21,
+      "lon": 113.92,
+      "spatial_risk": 0.266
+    },
+    {
+      "province": "Kalimantan Selatan",
+      "cases": 2939,
+      "cases_7d": 694,
+      "risk_score": 0.299,
+      "risk_level": "LOW",
+      "lat": -3.32,
+      "lon": 114.59,
+      "spatial_risk": 0.333
+    },
+    {
+      "province": "Kalimantan Timur",
+      "cases": 3490,
+      "cases_7d": 894,
+      "risk_score": 0.439,
+      "risk_level": "LOW",
+      "lat": 0.54,
+      "lon": 116.42,
+      "spatial_risk": 0.514
+    },
+    {
+      "province": "Kalimantan Utara",
+      "cases": 1108,
+      "cases_7d": 270,
+      "risk_score": 0.366,
+      "risk_level": "LOW",
+      "lat": 3.3,
+      "lon": 117.6,
+      "spatial_risk": 0.473
+    },
+    {
+      "province": "Sulawesi Utara",
+      "cases": 1718,
+      "cases_7d": 406,
+      "risk_score": 0.249,
+      "risk_level": "LOW",
+      "lat": 1.49,
+      "lon": 124.84,
+      "spatial_risk": 0.372
+    },
+    {
+      "province": "Sulawesi Tengah",
+      "cases": 2273,
+      "cases_7d": 591,
+      "risk_score": 0.236,
+      "risk_level": "LOW",
+      "lat": -0.9,
+      "lon": 119.87,
+      "spatial_risk": 0.347
+    },
+    {
+      "province": "Sulawesi Selatan",
+      "cases": 5111,
+      "cases_7d": 1291,
+      "risk_score": 0.445,
+      "risk_level": "LOW",
+      "lat": -5.14,
+      "lon": 119.41,
+      "spatial_risk": 0.579
+    },
+    {
+      "province": "Sulawesi Tenggara",
+      "cases": 1664,
+      "cases_7d": 369,
+      "risk_score": 0.482,
+      "risk_level": "MEDIUM",
+      "lat": -3.99,
+      "lon": 122.51,
+      "spatial_risk": 0.623
+    },
+    {
+      "province": "Gorontalo",
+      "cases": 900,
+      "cases_7d": 211,
+      "risk_score": 0.266,
+      "risk_level": "LOW",
+      "lat": 0.54,
+      "lon": 123.06,
+      "spatial_risk": 0.406
+    },
+    {
+      "province": "Sulawesi Barat",
+      "cases": 1519,
+      "cases_7d": 417,
+      "risk_score": 0.151,
+      "risk_level": "LOW",
+      "lat": -2.67,
+      "lon": 118.89,
+      "spatial_risk": 0.235
+    },
+    {
+      "province": "Maluku",
+      "cases": 1189,
+      "cases_7d": 274,
+      "risk_score": 0.247,
+      "risk_level": "LOW",
+      "lat": -3.7,
+      "lon": 128.18,
+      "spatial_risk": 0.368
+    },
+    {
+      "province": "Maluku Utara",
+      "cases": 1582,
+      "cases_7d": 349,
+      "risk_score": 0.222,
+      "risk_level": "LOW",
+      "lat": 0.79,
+      "lon": 127.38,
+      "spatial_risk": 0.268
+    },
+    {
+      "province": "Papua Barat",
+      "cases": 927,
+      "cases_7d": 264,
+      "risk_score": 0.255,
+      "risk_level": "LOW",
+      "lat": -0.86,
+      "lon": 134.06,
+      "spatial_risk": 0.393
+    },
+    {
+      "province": "Papua",
+      "cases": 1449,
+      "cases_7d": 340,
+      "risk_score": 0.259,
+      "risk_level": "LOW",
+      "lat": -2.53,
+      "lon": 140.72,
+      "spatial_risk": 0.381
+    },
+    {
+      "province": "Papua Selatan",
+      "cases": 970,
+      "cases_7d": 269,
+      "risk_score": 0.142,
+      "risk_level": "LOW",
+      "lat": -7.75,
+      "lon": 139.35,
+      "spatial_risk": 0.257
+    },
+    {
+      "province": "Papua Tengah",
+      "cases": 900,
+      "cases_7d": 239,
+      "risk_score": 0.206,
+      "risk_level": "LOW",
+      "lat": -3.92,
+      "lon": 136.52,
+      "spatial_risk": 0.257
+    },
+    {
+      "province": "Papua Pegunungan",
+      "cases": 900,
+      "cases_7d": 182,
+      "risk_score": 0.343,
+      "risk_level": "LOW",
+      "lat": -4.1,
+      "lon": 138.95,
+      "spatial_risk": 0.493
+    },
+    {
+      "province": "Papua Barat Daya",
+      "cases": 1097,
+      "cases_7d": 221,
+      "risk_score": 0.219,
+      "risk_level": "LOW",
+      "lat": -0.87,
+      "lon": 131.25,
+      "spatial_risk": 0.328
+    }
+  ],
+  "disease_metrics": [
+    {
+      "disease": "Dengue",
+      "cases": 32101
+    },
+    {
+      "disease": "ISPA",
+      "cases": 35953
+    },
+    {
+      "disease": "Diare Akut",
+      "cases": 20544
+    },
+    {
+      "disease": "TB",
+      "cases": 14124
+    },
+    {
+      "disease": "Leptospirosis",
+      "cases": 8988
+    },
+    {
+      "disease": "Lainnya",
+      "cases": 16692
+    }
+  ],
+  "early_warning": [
+    {
+      "province": "Jawa Barat",
+      "signal": "TREND_INCREASING",
+      "risk_level": "HIGH",
+      "reason": "Peningkatan kasus pada jendela observasi demo",
+      "klb_probability": 0.827
+    },
+    {
+      "province": "Jawa Timur",
+      "signal": "TREND_INCREASING",
+      "risk_level": "MEDIUM",
+      "reason": "Peningkatan kasus pada jendela observasi demo",
+      "klb_probability": 0.777
+    },
+    {
+      "province": "Aceh",
+      "signal": "TREND_INCREASING",
+      "risk_level": "MEDIUM",
+      "reason": "Peningkatan kasus pada jendela observasi demo",
+      "klb_probability": 0.767
+    },
+    {
+      "province": "Banten",
+      "signal": "TREND_INCREASING",
+      "risk_level": "MEDIUM",
+      "reason": "Peningkatan kasus pada jendela observasi demo",
+      "klb_probability": 0.758
+    },
+    {
+      "province": "Jawa Tengah",
+      "signal": "TREND_INCREASING",
+      "risk_level": "MEDIUM",
+      "reason": "Peningkatan kasus pada jendela observasi demo",
+      "klb_probability": 0.752
+    },
+    {
+      "province": "Lampung",
+      "signal": "TREND_INCREASING",
+      "risk_level": "MEDIUM",
+      "reason": "Peningkatan kasus pada jendela observasi demo",
+      "klb_probability": 0.745
+    },
+    {
+      "province": "Sumatera Utara",
+      "signal": "TREND_INCREASING",
+      "risk_level": "MEDIUM",
+      "reason": "Peningkatan kasus pada jendela observasi demo",
+      "klb_probability": 0.73
+    },
+    {
+      "province": "DKI Jakarta",
+      "signal": "TREND_INCREASING",
+      "risk_level": "MEDIUM",
+      "reason": "Peningkatan kasus pada jendela observasi demo",
+      "klb_probability": 0.725
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "P1",
+      "action": "Verifikasi sinyal pada provinsi prioritas dan lakukan data-quality check.",
+      "basis": "EWS + trend + spatial signal"
+    },
+    {
+      "priority": "P1",
+      "action": "Drill-down ke kabupaten/kota dan fasilitas pelayanan kesehatan.",
+      "basis": "hierarchical surveillance"
+    },
+    {
+      "priority": "P2",
+      "action": "Lakukan investigasi epidemiologi bila sinyal konsisten dengan kriteria operasional.",
+      "basis": "KLB signal bukan deklarasi KLB"
+    }
+  ],
+  "integration_contract": "GET /api/intelligence/kemenkes\\n\\nProduction: SI-HIS Intelligence -> REST/API Gateway -> Dashboard-Kemenkes"
+}
