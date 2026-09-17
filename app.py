@@ -1,72 +1,75 @@
 import streamlit as st
-import pandas as pd
-import plotly.express as px
+
+from config.dashboard_config import APP_TITLE, PERIOD_OPTIONS, DATA_SOURCE_OPTIONS
 from services.sihis_client import get_kemenkes_intelligence
+from services.data_service import normalize_intelligence
+from services.intelligence_service import get_decision_signals
+from components.filters import sidebar_filters
+from components.kpi_cards import show_kpis
+from components.charts import disease_chart, province_risk_chart
+from components.maps import province_map
+from components.tables import show_early_warning
+from components.alerts import show_alerts
 
-st.set_page_config(page_title="SI-HIS | Dashboard Kemenkes", page_icon="🏥", layout="wide")
-st.title("🇮🇩 SI-HIS — Kemenkes National Health Intelligence")
-st.caption("National overview • Epidemiology • Early Warning • Spatial Intelligence • Prediction • Decision Support")
+st.set_page_config(page_title=APP_TITLE, layout="wide")
+st.title(APP_TITLE)
+st.caption("Dashboard keputusan nasional; intelligence dihitung oleh SI-HIS Intelligence.")
 
-with st.sidebar:
-    st.header("Filter Nasional")
-    period = st.selectbox("Periode", ["7 Hari", "14 Hari", "30 Hari"], index=1)
-    st.selectbox("Provinsi", ["Semua Provinsi"])
-    st.divider()
-    st.info("Mode: DEMO / simulated intelligence. Adapter API SI-HIS tersedia untuk tahap integrasi.")
+source, period, province = sidebar_filters(PERIOD_OPTIONS, DATA_SOURCE_OPTIONS)
+mode = "api" if source == "SI-HIS API" else "demo"
 
-payload = get_kemenkes_intelligence(mode="demo", period=period)
-s = payload["summary"]
-prov = pd.DataFrame(payload["province_metrics"])
-disease = pd.DataFrame(payload["disease_metrics"])
-alerts = pd.DataFrame(payload["early_warning"])
+try:
+    payload = get_kemenkes_intelligence(mode=mode, period=period)
+    data = normalize_intelligence(payload)
+except Exception as exc:
+    st.error(f"Gagal mengambil intelligence: {exc}")
+    st.stop()
 
-st.subheader("National Overview")
-a,b,c,d,e = st.columns(5)
-a.metric("Total Kasus", f"{s['total_cases']:,}")
-b.metric("Kasus 7 Hari", f"{s['cases_7d']:,}")
-c.metric("Active Early Warning", s["active_alerts"])
-d.metric("Provinsi High Risk", s["high_risk_provinces"])
-e.metric("KLB Signal", f"{s['klb_signal']:.0%}")
+show_kpis(data)
 
-c1,c2 = st.columns(2)
+st.divider()
+st.header("1. Epidemiological Intelligence")
+c1, c2 = st.columns(2)
 with c1:
-    st.markdown("### Beban Kasus per Provinsi")
-    fig = px.bar(prov.sort_values("cases").tail(15), x="cases", y="province", orientation="h")
-    fig.update_layout(height=500)
-    st.plotly_chart(fig, use_container_width=True)
+    disease_chart(data["top_disease"])
 with c2:
-    st.markdown("### Distribusi Penyakit")
-    fig = px.pie(disease, names="disease", values="cases", hole=.45)
-    fig.update_layout(height=500)
-    st.plotly_chart(fig, use_container_width=True)
+    province_risk_chart(data["province_risk"])
 
-st.divider()
-st.subheader("🚨 Early Warning & Spatial Intelligence")
-c3,c4 = st.columns([1.15,1])
-with c3:
-    view = alerts[["province","signal","risk_level","reason","klb_probability"]].copy()
-    view["klb_probability"] = view["klb_probability"].map(lambda x: f"{x:.0%}")
-    st.dataframe(view, use_container_width=True, hide_index=True)
-with c4:
-    fig = px.scatter_geo(prov, lat="lat", lon="lon", size="cases", color="risk_score",
-                         hover_name="province", hover_data={"cases":True,"risk_score":":.2f","lat":False,"lon":False},
-                         scope="asia")
-    fig.update_geos(fitbounds="locations", visible=False)
-    fig.update_layout(height=500, margin={"l":0,"r":0,"t":0,"b":0})
-    st.plotly_chart(fig, use_container_width=True)
+st.header("2. Spatial Intelligence")
+province_map(data["province_risk"])
 
-st.divider()
-st.subheader("🔮 Prediction & Decision Support")
-p1,p2,p3 = st.columns(3)
-p1.metric("Prediksi Kasus 7 Hari", f"{s['forecast_7d']:,}", f"{s['forecast_change_pct']:+.1f}%")
-p2.metric("Spatial Risk Signal", f"{s['spatial_risk']:.0%}")
-p3.metric("Vulnerable Population Signal", f"{s['vulnerable_signal']:.0%}")
+st.header("3. Early Warning")
+show_alerts(data)
+show_early_warning(data["early_warning"])
 
-st.markdown("### Prioritas Tindak Lanjut")
-for x in payload["recommendations"]:
-    st.markdown(f"- **{x['priority']}** — {x['action']} — *{x['basis']}*")
+st.header("4. Prediction & Vulnerable Population")
+c1, c2 = st.columns(2)
+with c1:
+    st.subheader("Forecast")
+    st.dataframe(data["forecast"], use_container_width=True, hide_index=True)
+with c2:
+    st.subheader("Populasi Rentan")
+    st.json(data["vulnerable_population"])
 
-with st.expander("🔗 SI-HIS Integration Contract"):
-    st.code(payload["integration_contract"], language="text")
+st.header("5. Decision Support")
+signals = get_decision_signals(data)
+st.metric("Status Prioritas", signals["priority"])
+for item in data["recommendations"]:
+    st.write("•", item)
 
-st.caption("Demo sintetis. EWS/ML bukan diagnosis atau deklarasi KLB dan tidak boleh menjadi satu-satunya dasar keputusan kesehatan masyarakat.")
+with st.expander("Data provenance, interoperability & governance"):
+    st.markdown("""
+**Arsitektur data:** Multi-source → SI-HIS Data Hub → Data Quality →
+Standardisasi → HL7 FHIR/Terminologi → SI-HIS Intelligence → Dashboard.
+
+**Sumber data:** individu/NutriMed MyLab, mitra digital, dokter/klinik,
+Puskesmas/SIMPUS, rumah sakit, laboratorium, farmasi, Dinkes, Kemenkes,
+serta data pembiayaan/claims sesuai kewenangan dan integrasi.
+
+**Interoperabilitas:** dashboard tidak mengolah ulang mesin intelligence;
+dashboard mengonsumsi kontrak API SI-HIS.
+
+**Governance:** sinyal ML merupakan decision support. Sinyal KLB bukan
+penetapan KLB/outbreak; keputusan kesehatan masyarakat memerlukan
+verifikasi surveilans dan proses otoritatif.
+""")
